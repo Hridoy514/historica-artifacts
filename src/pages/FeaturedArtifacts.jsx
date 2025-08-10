@@ -12,8 +12,8 @@ const FeaturedArtifacts = () => {
   }, []);
 
   return (
-    <section className="my-10 px-4 md:px-8 max-w-8xl mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-6 text-amber-700 dark:text-amber-300">
+    <section className="bg-[#f7f7ff] px-4 md:px-8 max-w-8xl py-10 mx-auto">
+      <h2 className="text-3xl font-bold text-center mb-6 text-amber-400 dark:text-amber-500">
         🏺 Featured Artifacts
       </h2>
 
@@ -21,7 +21,7 @@ const FeaturedArtifacts = () => {
         {artifacts.map((item) => (
           <div
             key={item._id}
-            className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden"
+            className="bg-white dark:bg-white shadow-lg rounded-lg overflow-hidden"
           >
             <img
               src={item.image}
@@ -29,14 +29,14 @@ const FeaturedArtifacts = () => {
               className="w-full h-52 object-cover"
             />
             <div className="p-4">
-              <h3 className="text-xl font-semibold text-green-700 dark:text-amber-300">
+              <h3 className="text-xl font-semibold text-green-700 dark:text-amber-500">
                 {item.name}
               </h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 my-2">
                 {item.description?.slice(0, 70)}...
               </p>
               <div className="flex justify-between items-center mt-4">
-                <span className="text-sm font-medium text-green-600 dark:text-amber-400">
+                <span className="text-sm font-medium text-green-600 dark:text-amber-500">
                   ❤️ {item.likeCount}
                 </span>
                 <Link

@@ -23,7 +23,6 @@ const ArtifactDetails = () => {
       const res = await axiosSecure.patch(`/artifacts/${id}/like`, {
         email: user.email,
       });
-
       if (res.data?.success) {
         setArtifact((prev) => ({
           ...prev,
@@ -34,7 +33,6 @@ const ArtifactDetails = () => {
       console.error("Toggle like failed:", err.response?.data || err.message);
     }
   };
-  
 
   if (!artifact) {
     return (
@@ -45,27 +43,70 @@ const ArtifactDetails = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-4 py-12">
-      <img
-        src={artifact.image}
-        alt={artifact.name}
-        className="w-full h-96 object-cover rounded-lg"
-      />
-      <h2 className="text-3xl mt-6 font-bold text-amber-700 dark:text-amber-400">
-        {artifact.name}
-      </h2>
-      <p className="mt-4 text-black dark:text-gray-400">
-        {artifact.description}
-      </p>
+    <div className="w-full bg-white min-h-screen text-text dark:text-dark-text">
+      {/* Hero Section with Overlay */}
+      <div className="relative w-full h-[60vh] md:h-[70vh]">
+        <img
+          src={artifact.image}
+          alt={artifact.name}
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/20 to-transparent flex items-end">
+          <div className="max-w-6xl mx-auto px-6 py-8 text-white">
+            <h1 className="text-4xl text-amber-500 md:text-6xl font-bold drop-shadow-xl">
+              {artifact.name}
+            </h1>
+            <p className="mt-2 text-lg italic opacity-90">
+              {artifact.shortDescription}
+            </p>
+            <button
+              onClick={handleLikeToggle}
+              className={`mt-4 px-6 py-2 rounded-full backdrop-blur-md bg-white/20 hover:bg-white/40 text-white shadow-lg transition ${
+                isLiked ? "bg-red-500/80 hover:bg-red-600" : ""
+              }`}
+            >
+              {isLiked ? "💔 Unlike" : "❤️ Like"} ({artifact.likeCount})
+            </button>
+          </div>
+        </div>
+      </div>
 
-      <button
-        onClick={handleLikeToggle}
-        className={`mt-6 btn px-6 py-2 rounded-full ${
-          isLiked ? "bg-gray-500 text-white" : "bg-amber-500 text-white"
-        }`}
-      >
-        {isLiked ? "💔 Unlike" : "❤️ Like"} ({artifact.likeCount})
-      </button>
+      {/* Details Section */}
+      <div className="max-w-6xl bg-white mx-auto px-6 py-10 space-y-8">
+        {/* Description */}
+        <div className="text-lg font-bold leading-relaxed">{artifact.description}</div>
+
+        {/* Info Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {[
+            { label: "Type", value: artifact.type },
+            { label: "Historical Context", value: artifact.historicalContext },
+            { label: "Created At", value: artifact.createdAt },
+            { label: "Discovered At", value: artifact.discoveredAt },
+            { label: "Discovered By", value: artifact.discoveredBy },
+            { label: "Present Location", value: artifact.presentLocation },
+          ].map((item, idx) => (
+            <div
+              key={idx}
+              className="p-5 rounded-xl border border-primary/20 backdrop-blur-sm shadow-sm"
+            >
+              <h4 className="font-semibold text-amber-600">
+                {item.label}
+              </h4>
+              <p>{item.value}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Added By */}
+        <div className="border-t pt-4 flex flex-wrap gap-4 items-center text-sm opacity-80">
+          <span>
+            Added By:{" "}
+            <span className="font-semibold">{artifact.addedByName}</span>
+          </span>
+          <span>({artifact.addedByEmail})</span>
+        </div>
+      </div>
     </div>
   );
 };

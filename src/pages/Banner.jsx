@@ -33,7 +33,7 @@ const Banner = () => {
         loop={true}
         effect="fade"
         modules={[Navigation, Autoplay, EffectFade]}
-        className="w-full h-96 overflow-hidden shadow-2xl"
+        className="w-full h-full overflow-hidden shadow-2xl"
       >
         {slides.map((slide, idx) => (
           <SwiperSlide key={idx}>

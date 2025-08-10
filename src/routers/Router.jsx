@@ -50,9 +50,7 @@ export const Router = createBrowserRouter([
       {
         path: "/artifact/:id",
         element: (
-          <PrivateRoute>
             <ArtifactDetails />
-          </PrivateRoute>
         ),
       },
       {
