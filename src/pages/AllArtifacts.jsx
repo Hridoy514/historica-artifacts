@@ -42,7 +42,7 @@ const AllArtifacts = () => {
           artifacts.map((artifact) => (
             <div
               key={artifact._id}
-              className="bg-gradient-to-br from-green-100 to-white dark:from-gray-800 dark:to-gray-700 rounded-xl shadow-lg overflow-hidden transform transition hover:scale-[1.02]"
+              className="bg-gray-900 rounded-xl shadow-lg overflow-hidden transform transition hover:scale-[1.02]"
             >
               <img
                 src={artifact.image}
@@ -50,7 +50,7 @@ const AllArtifacts = () => {
                 className="h-56 w-full object-cover"
               />
               <div className="p-5">
-                <h3 className="text-xl font-semibold text-amber-800 dark:text-amber-200 mb-1">
+                <h3 className="text-xl font-semibold text-amber-500 mb-1">
                   {artifact.name}
                 </h3>
                 <p className="text-sm text-gray-700 dark:text-gray-300">

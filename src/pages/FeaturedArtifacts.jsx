@@ -21,7 +21,7 @@ const FeaturedArtifacts = () => {
         {artifacts.map((item) => (
           <div
             key={item._id}
-            className="bg-white dark:bg-white shadow-lg rounded-lg overflow-hidden"
+            className="bg-gray-900 shadow-xl rounded-lg overflow-hidden transform transition hover:scale-[1.02]"
           >
             <img
               src={item.image}
@@ -32,7 +32,7 @@ const FeaturedArtifacts = () => {
               <h3 className="text-xl font-semibold text-green-700 dark:text-amber-500">
                 {item.name}
               </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-400 my-2">
+              <p className="text-sm text-gray-600 dark:text-gray-600 my-2">
                 {item.description?.slice(0, 70)}...
               </p>
               <div className="flex justify-between items-center mt-4">

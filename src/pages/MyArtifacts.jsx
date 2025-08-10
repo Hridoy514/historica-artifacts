@@ -52,7 +52,7 @@ const MyArtifacts = () => {
           {myArtifacts.map((artifact) => (
             <div
               key={artifact._id}
-              className="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden"
+              className="bg-white dark:bg-gray-900 shadow-md rounded-lg overflow-hidden"
             >
               <img
                 src={artifact.image}
@@ -60,7 +60,7 @@ const MyArtifacts = () => {
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
-                <h3 className="text-lg font-semibold text-green-700 dark:text-amber-200">
+                <h3 className="text-lg font-semibold text-green-700 dark:text-amber-400">
                   {artifact.name}
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400">

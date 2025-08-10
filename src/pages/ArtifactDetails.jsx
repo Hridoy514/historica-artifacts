@@ -43,7 +43,7 @@ const ArtifactDetails = () => {
   }
 
   return (
-    <div className="w-full bg-white min-h-screen text-text dark:text-dark-text">
+    <div className="w-full bg-black min-h-screen text-text dark:text-dark-text">
       {/* Hero Section with Overlay */}
       <div className="relative w-full h-[60vh] md:h-[70vh]">
         <img
@@ -51,7 +51,7 @@ const ArtifactDetails = () => {
           alt={artifact.name}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/20 to-transparent flex items-end">
+        <div className="absolute inset-0  flex items-end">
           <div className="max-w-6xl mx-auto px-6 py-8 text-white">
             <h1 className="text-4xl text-amber-500 md:text-6xl font-bold drop-shadow-xl">
               {artifact.name}
@@ -72,7 +72,7 @@ const ArtifactDetails = () => {
       </div>
 
       {/* Details Section */}
-      <div className="max-w-6xl bg-white mx-auto px-6 py-10 space-y-8">
+      <div className="max-w-6xl bg-black mx-auto px-6 py-10 space-y-8">
         {/* Description */}
         <div className="text-lg font-bold leading-relaxed">{artifact.description}</div>
 
@@ -90,7 +90,7 @@ const ArtifactDetails = () => {
               key={idx}
               className="p-5 rounded-xl border border-primary/20 backdrop-blur-sm shadow-sm"
             >
-              <h4 className="font-semibold text-amber-600">
+              <h4 className="font-semibold text-amber-500">
                 {item.label}
               </h4>
               <p>{item.value}</p>
