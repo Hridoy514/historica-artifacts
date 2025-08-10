@@ -1,4 +1,9 @@
 import { Link } from "react-router";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 const eras = [
   {
@@ -31,31 +36,42 @@ const ExploreByEra = () => {
           Journey through time and discover artifacts from every age.
         </p>
 
-        <div className="grid gap-8 md:grid-cols-3">
+        <Swiper
+          modules={[Navigation, Pagination, Autoplay]}
+          spaceBetween={20}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          autoplay={{ delay: 3000 }}
+          breakpoints={{
+            640: { slidesPerView: 1 },
+            768: { slidesPerView: 2 },
+            1024: { slidesPerView: 3 },
+          }}
+        >
           {eras.map(({ era, range, image }) => (
-            <div
-              key={era}
-              className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition duration-300 bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800"
-            >
-              <img
-                src={image}
-                alt={era}
-                className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-90 group-hover:opacity-100 transition duration-300" />
-              <div className="absolute bottom-5 left-5 text-left z-10">
-                <h3 className="text-2xl font-semibold text-white">{era}</h3>
-                <p className="text-sm text-gray-300">{range}</p>
-                <Link
-                  to={`/all-artifacts?era=${era}`}
-                  className="inline-block mt-3 bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md"
-                >
-                  Explore {era}
-                </Link>
+            <SwiperSlide key={era}>
+              <div className="relative group overflow-hidden rounded-2xl shadow-lg hover:shadow-xl transition duration-300 bg-white dark:bg-neutral-900 border border-gray-200 dark:border-neutral-800">
+                <img
+                  src={image}
+                  alt={era}
+                  className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-90 group-hover:opacity-100 transition duration-300" />
+                <div className="absolute bottom-5 left-5 text-left z-10">
+                  <h3 className="text-2xl font-semibold text-white">{era}</h3>
+                  <p className="text-sm text-gray-300">{range}</p>
+                  <Link
+                    to={`/all-artifacts?era=${era}`}
+                    className="inline-block mt-3 bg-amber-500 hover:bg-amber-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-md"
+                  >
+                    Explore {era}
+                  </Link>
+                </div>
               </div>
-            </div>
+            </SwiperSlide>
           ))}
-        </div>
+        </Swiper>
       </div>
     </section>
   );

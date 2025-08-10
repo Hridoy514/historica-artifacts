@@ -13,6 +13,7 @@ import MyArtifacts from "../pages/MyArtifacts";
 import UpdateArtifact from "../pages/UpdateArtifact";
 import AddArtifact from "../pages/AddArtifact";
 import LikedArtifacts from "../pages/LikedArtifacts";
+import ExploreByEra from "../pages/ExploreByEra";
 
 
 export const Router = createBrowserRouter([
