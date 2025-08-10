@@ -13,9 +13,14 @@ const FeaturedArtifacts = () => {
 
   return (
     <section className="bg-black px-4 md:px-8 max-w-8xl py-10 mx-auto">
-      <h2 className="text-3xl font-bold text-center mb-6 text-amber-400 dark:text-amber-500">
-        🏺 Featured Artifacts
+      <h2 className="text-4xl text-center font-extrabold text-amber-700 dark:text-amber-400 mb-4 tracking-tight">
+        Featured Artifacts
       </h2>
+      <p className="text-lg text-center text-gray-600 dark:text-gray-300 mb-12">
+        A curated showcase of unique and significant items
+        each with its own <br />
+        story, highlighting their history, craftsmanship, and cultural value.
+      </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {artifacts.map((item) => (
