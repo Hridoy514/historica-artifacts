@@ -1,17 +1,17 @@
 import { Link, NavLink } from "react-router";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../authProvider/AuthProvider";
 import { FaLeaf, FaMoon, FaSun, FaBars } from "react-icons/fa";
 import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
-  const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
+  // const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
-  }, [theme]);
+  // useEffect(() => {
+  //   document.documentElement.setAttribute("data-theme", theme);
+  //   localStorage.setItem("theme", theme);
+  // }, [theme]);
 
   const handleLogout = () => {
     logout()
@@ -81,12 +81,12 @@ const Navbar = () => {
       {/* Right Section: Theme Toggle & Auth */}
       <div className="flex items-center gap-2">
         {/* Theme Toggle */}
-        <button
+        {/* <button
           onClick={() => setTheme(theme === "light" ? "dark" : "light")}
           className="btn btn-ghost text-xl"
         >
           {theme === "light" ? <FaMoon /> : <FaSun />}
-        </button>
+        </button> */}
 
         {/* Auth */}
         {!user ? (

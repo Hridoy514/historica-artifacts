@@ -12,7 +12,7 @@ const FeaturedArtifacts = () => {
   }, []);
 
   return (
-    <section className="bg-[#f7f7ff] px-4 md:px-8 max-w-8xl py-10 mx-auto">
+    <section className="bg-black px-4 md:px-8 max-w-8xl py-10 mx-auto">
       <h2 className="text-3xl font-bold text-center mb-6 text-amber-400 dark:text-amber-500">
         🏺 Featured Artifacts
       </h2>
