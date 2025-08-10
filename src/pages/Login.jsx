@@ -8,7 +8,6 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import app from "../firebase.init";
-import { FaLandmark } from "react-icons/fa";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -39,82 +38,87 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-amber-100 via-yellow-50 to-emerald-100 dark:from-gray-900 dark:via-gray-950 dark:to-black transition-colors duration-300 px-4 pt-20 pb-14">
-      <div className="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl w-full max-w-md border border-amber-200 dark:border-gray-700">
-        <div className="flex items-center justify-center mb-6 text-4xl text-amber-600 dark:text-amber-400">
-          <FaLandmark />
-          <span className="ml-3 font-extrabold">Login to Historica</span>
-        </div>
+    <div className="min-h-screen flex">
+      {/* Left Image Side */}
+      <div
+        className="hidden md:flex w-1/2 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://i.ibb.co.com/Nb808r8/pexels-pixabay-532263.jpg')",
+        }}
+      />
 
-        <form onSubmit={handleLogin} className="space-y-4">
+      {/* Right Form Side */}
+      <div className="flex flex-col justify-center w-full md:w-1/2 bg-gray-900 text-white px-10 md:px-20 py-20 rounded-tr-3xl rounded-br-3xl shadow-lg">
+        <h1 className="text-3xl font-bold mb-10">Sign in to your account</h1>
+
+        <form onSubmit={handleLogin} className="space-y-6">
           <div>
-            <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200">
+            <label htmlFor="email" className="block mb-2 font-semibold">
               Email
             </label>
             <input
+              id="email"
               type="email"
+              placeholder="designer@example.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-amber-400 dark:focus:ring-amber-600"
-              required
-            />
-          </div>
-          <div>
-            <label className="block mb-1 font-medium text-gray-700 dark:text-gray-200">
-              Password
-            </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-4 py-2 border rounded-lg bg-white dark:bg-gray-700 border-gray-300 dark:border-gray-600 text-gray-900 dark:text-gray-100 focus:outline-none focus:ring-2 focus:ring-amber-400 dark:focus:ring-amber-600"
+              className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 placeholder-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
           </div>
 
-          <div className="text-right text-sm">
-            <Link
-              to="/forgot-password"
-              state={{ email }}
-              className="text-amber-600 dark:text-amber-400 hover:underline"
+          <div>
+            <label
+              htmlFor="password"
+              className="mb-2 font-semibold flex justify-between items-center"
             >
-              Forgot Password?
-            </Link>
+              Password
+              <Link
+                to="/forgot-password"
+                className="text-amber-500 hover:underline text-sm"
+              >
+                Forgot password?
+              </Link>
+            </label>
+            <input
+              id="password"
+              type="password"
+              placeholder="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700 placeholder-gray-600 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-amber-600 hover:bg-amber-700 text-white py-2 rounded-lg font-semibold transition"
+            className="w-full bg-amber-600 hover:bg-amber-700 py-3 rounded-lg text-white font-semibold transition"
           >
-            Login
+            Sign in
           </button>
         </form>
 
-        <div className="my-4 text-center text-sm text-gray-500 dark:text-gray-400">
-          or login with
-        </div>
-
         <button
           onClick={handleGoogleLogin}
-          className="w-full flex items-center justify-center gap-3 border border-gray-300 dark:border-gray-600 py-2 rounded-lg hover:bg-amber-50 dark:hover:bg-gray-700 transition"
+          className="mt-8 w-full flex items-center justify-center gap-3 border border-gray-700 py-3 rounded-lg hover:bg-gray-800 transition text-white"
         >
           <img
             src="https://img.icons8.com/color/24/google-logo.png"
             alt="Google"
             className="w-5 h-5"
           />
-          <span className="text-sm font-medium text-gray-700 dark:text-gray-200">
-            Login with Google
-          </span>
+          <span className="text-sm font-medium">Login with Google</span>
         </button>
 
-        <p className="mt-5 text-sm text-center text-gray-600 dark:text-gray-400">
-          Don’t have an account?{" "}
+        <p className="mt-10 text-center text-gray-400">
+          Not registered?{" "}
           <Link
             to="/register"
-            className="text-amber-600 hover:underline dark:text-amber-400"
+            className="text-amber-500 hover:underline font-semibold"
           >
-            Register here
+            Join us
           </Link>
         </p>
       </div>
